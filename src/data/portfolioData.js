@@ -7,6 +7,7 @@ export const portfolioData = {
     location: "Johor, Malaysia",
     email: "muhammadnabil030505@gmail.com",
     phone: "+60 11-5186 3842",
+    website: "https://muhdnabil.site",
     resumeUrl: "/resume.pdf",
     linkedin: "https://www.linkedin.com/in/muhammad-nabil-bin-ariffudin-234b18430",
     github: "https://github.com/nabbbbil",
@@ -14,7 +15,8 @@ export const portfolioData = {
     institution: "Universiti Teknikal Malaysia Melaka (UTeM)",
     cgpa: "3.32",
     honors: "Dean's List (Semester 3 & 5)",
-    status: "Final Year / Available for roles",
+    status: "Internship Placement: 28 Sep 2026 – 12 Mar 2027",
+    placementWindow: "28th September 2026 – 12th March 2027",
     tagline: "Ships web systems. Also ships games.",
     statement: "The interesting gameplay problems usually turn out to be data problems wearing a costume.",
     leadBio: "My work sits between game engines and the systems underneath them: network programming, databases, and server infrastructure. A stealth game that reads a smartwatch over UDP and a booking platform that refuses to double-book are closer relatives than they look. Both are about state you cannot afford to get wrong."
