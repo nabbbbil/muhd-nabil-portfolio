@@ -442,8 +442,9 @@
 .profile-hero__actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-top: 0.6rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.8rem;
 }
 
 .profile-hero__btn-ghost {

@@ -6,11 +6,14 @@ export const portfolioData = {
     role: "Game Technology & Web Systems Engineer",
     location: "Johor, Malaysia",
     email: "muhammadnabil030505@gmail.com",
+    phone: "+60 11-5186 3842",
+    resumeUrl: "/resume.pdf",
     linkedin: "https://www.linkedin.com/in/muhammad-nabil-bin-ariffudin-234b18430",
     github: "https://github.com/nabbbbil",
-    degree: "Bachelor of IT (Game Technology) (BITE)",
+    degree: "Bachelor of IT (Game Technology) with Honours (BITE)",
     institution: "Universiti Teknikal Malaysia Melaka (UTeM)",
     cgpa: "3.32",
+    honors: "Dean's List (Semester 3 & 5)",
     status: "Final Year / Available for roles",
     tagline: "Ships web systems. Also ships games.",
     statement: "The interesting gameplay problems usually turn out to be data problems wearing a costume.",
@@ -241,35 +244,35 @@ export const portfolioData = {
   methodDeck: [
     {
       step: "01",
-      phase: "Telemetry & Sockets",
-      title: "Sensors & Real-Time State",
-      text: "From WearOS smartwatch heart rates piped over custom UDP sockets to multiplayer packets, I build real-time data loops where milliseconds dictate experience.",
-      meta: "UDP Protocols · WearOS · C++ · Sensor Sync",
-      badge: "LOW LATENCY"
+      phase: "Unreal Engine & Unity",
+      title: "Game Development",
+      text: "Building playable 3D games with responsive character movement, tactical enemy AI, and optimized frame rates. Prototyping mechanics, particle effects, and tuning physics for tactile 60 FPS gameplay.",
+      meta: "Unreal Engine 5 · Unity · C++ · C# · Gameplay AI · Blueprints · Niagara VFX",
+      badge: "VAULT RUNNER · LAST VANGUARD · CITY CHASE"
     },
     {
       step: "02",
-      phase: "Production Systems",
-      title: "Concurrency-Safe Web",
-      text: "Real users test real limits. In both the enterprise car reservation system developed during my internship and the Laravel football platform, booking overlaps are locked down at the database layer.",
-      meta: "Laravel · PHP · MySQL · Atomic Locks · CSRF",
-      badge: "ZERO OVERLAP"
+      phase: "PHP, Laravel & MySQL",
+      title: "Web Engineering",
+      text: "Developing production web applications with secure role-based access, interactive availability calendars, and database-level concurrency locks that prevent scheduling overlaps and double-booking.",
+      meta: "PHP · Laravel · MySQL · REST APIs · Atomic Locks · CSRF Protection",
+      badge: "CAR BOOKING · VINTARA UNITED"
     },
     {
       step: "03",
-      phase: "Engine Mechanics",
-      title: "Game Architecture",
-      text: "Unreal Engine 5 and Unity aren't just for visuals; they are state machines with AI perception, physics ticks, Niagara VFX, and modular player controller hierarchies.",
-      meta: "Unreal Engine 5 · Unity · Godot · C# · Gameplay AI",
-      badge: "60 FPS PHYSICS"
+      phase: "WearOS & UDP Telemetry",
+      title: "Biometrics & IoT",
+      text: "Connecting physical wearable devices to game engines over custom low-latency UDP sockets. Streaming biometric sensor telemetry across local networks without lag to drive real-time gameplay reactions.",
+      meta: "WearOS · UDP Socket Protocols · C++ · Sensor Sync · Network Telemetry",
+      badge: "FINAL YEAR PROJECT (FYP)"
     },
     {
       step: "04",
-      phase: "Infrastructure",
-      title: "Bare-Metal & Servers",
-      text: "Configuring Ubuntu clusters, MariaDB replication, Apache2, and UFW firewall boundaries from bare terminal prompts. Knowing the server lets you build better apps.",
-      meta: "Linux / Ubuntu · Apache2 · MariaDB · UFW · SSH/SFTP",
-      badge: "HARDENED SERVER"
+      phase: "Ubuntu & Server Security",
+      title: "Servers & Linux",
+      text: "Deploying, configuring, and securing production environments directly from the Linux command line. Setting up web servers, databases, and firewall boundaries so applications stay stable, isolated, and protected.",
+      meta: "Ubuntu Linux · Apache2 · MariaDB · UFW Firewall · SSH / SFTP",
+      badge: "SECUREVAULT CLUSTER"
     }
   ],
 
@@ -297,6 +300,12 @@ export const portfolioData = {
       count: "DevOps & Sockets",
       desc: "Databases, network protocols, and secure Linux server administration.",
       items: ["MySQL", "MariaDB", "UDP Sockets", "Ubuntu Linux", "Apache2 Server", "UFW Firewall"]
+    },
+    {
+      group: "3D Art & Creative Media",
+      count: "Asset Pipeline",
+      desc: "Creating 3D game models, environmental props, textures, and video production.",
+      items: ["Blender", "Adobe Photoshop", "Adobe Premiere Pro", "After Effects", "CapCut", "Canva"]
     }
   ]
 };
