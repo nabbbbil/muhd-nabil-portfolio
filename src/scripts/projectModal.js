@@ -90,7 +90,7 @@ export function initProjectModal() {
         liveLinkBtn.href = project.liveUrl;
         liveLinkBtn.style.display = 'inline-flex';
         const isVideo = project.liveUrl.includes('youtu');
-        liveLinkBtn.textContent = isVideo ? 'Watch Gameplay Demo ↗' : 'Open Live System ↗';
+        liveLinkBtn.textContent = project.liveLabel || (isVideo ? 'Watch Gameplay Demo ↗' : 'Open Live System ↗');
         liveLinkBtn.setAttribute('data-cursor-label', isVideo ? 'WATCH' : 'OPEN');
         liveLinkBtn.setAttribute('data-cursor-icon', isVideo ? '▶' : '↗');
       } else {
