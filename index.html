@@ -13,30 +13,80 @@
   <meta name="author" content="Muhammad Nabil">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="theme-color" content="#0A0908">
+  <meta name="theme-color" content="#dceeff">
 
-  <!-- Google Fonts: Archivo (Grotesk) + Playfair Display (Serif) + IBM Plex Mono -->
+  <!-- Display: Anton (stands in for Lateral) · UI: Satoshi (stands in for Aeonik Pro) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap"
-    rel="stylesheet">
-
-  <style>
-    :root {
-      --font-grotesk: "Archivo", system-ui, sans-serif;
-      --font-serif: "Playfair Display", Georgia, serif;
-      --font-body: "Inter", system-ui, sans-serif;
-      --font-mono: "IBM Plex Mono", monospace;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Ambient Noise Texture -->
-  <div class="grain" aria-hidden="true"></div>
+  <!-- Sticker sprite: flat fills, black outlines, no gradients -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+    <symbol id="st-controller" viewBox="0 0 120 120">
+      <path d="M30 42h60c12 0 20 8 22 20l4 22c2 12-6 20-15 20-7 0-11-4-15-10l-4-6H38l-4 6c-4 6-8 10-15 10-9 0-17-8-15-20l4-22c2-12 10-20 22-20z"
+        fill="#fb4903" stroke="#000" stroke-width="3" stroke-linejoin="round" />
+      <path d="M28 52h8v6h6v8h-6v6h-8v-6h-6v-8h6z" fill="#fff" stroke="#000" stroke-width="2.5"
+        stroke-linejoin="round" />
+      <circle cx="84" cy="58" r="6" fill="#ffd731" stroke="#000" stroke-width="2.5" />
+      <circle cx="96" cy="70" r="6" fill="#55db9c" stroke="#000" stroke-width="2.5" />
+      <path d="M50 50h20" stroke="#000" stroke-width="3" stroke-linecap="round" />
+      <path d="M17 66c1-6 3-10 7-13" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    </symbol>
 
-  <!-- Custom Magnetic Cursor Elements -->
+    <symbol id="st-watch" viewBox="0 0 120 120">
+      <path d="M44 30V12c0-3 2-5 5-5h22c3 0 5 2 5 5v18" fill="#5c4ade" stroke="#000" stroke-width="3"
+        stroke-linejoin="round" />
+      <path d="M44 90v18c0 3 2 5 5 5h22c3 0 5-2 5-5V90" fill="#5c4ade" stroke="#000" stroke-width="3"
+        stroke-linejoin="round" />
+      <rect x="90" y="50" width="10" height="18" rx="3" fill="#fff" stroke="#000" stroke-width="2.5" />
+      <rect x="24" y="26" width="70" height="68" rx="20" fill="#55db9c" stroke="#000" stroke-width="3" />
+      <rect x="34" y="36" width="50" height="48" rx="12" fill="#fff" stroke="#000" stroke-width="2.5" />
+      <path d="M39 62h10l5-12 7 22 6-16 4 6h9" fill="none" stroke="#fb4903" stroke-width="3.5"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <symbol id="st-server" viewBox="0 0 120 120">
+      <rect x="16" y="16" width="88" height="26" rx="9" fill="#5c4ade" stroke="#000" stroke-width="3" />
+      <rect x="16" y="47" width="88" height="26" rx="9" fill="#5c4ade" stroke="#000" stroke-width="3" />
+      <rect x="16" y="78" width="88" height="26" rx="9" fill="#5c4ade" stroke="#000" stroke-width="3" />
+      <circle cx="31" cy="29" r="4.5" fill="#55db9c" stroke="#000" stroke-width="2" />
+      <circle cx="31" cy="60" r="4.5" fill="#ffd731" stroke="#000" stroke-width="2" />
+      <circle cx="31" cy="91" r="4.5" fill="#55db9c" stroke="#000" stroke-width="2" />
+      <path d="M60 29h32M60 60h32M60 91h32" stroke="#fff" stroke-width="3.5" stroke-linecap="round" />
+    </symbol>
+
+    <symbol id="st-ball" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="48" fill="#ffd731" stroke="#000" stroke-width="3" />
+      <path d="M60 46l13.3 9.7-5.1 15.6H51.8l-5.1-15.6z" fill="#000" stroke="#000" stroke-width="2"
+        stroke-linejoin="round" />
+      <path d="M60 46V26M73.3 55.7l19-6.2M68.2 71.3L80 87.5M51.8 71.3L40 87.5M46.7 55.7l-19-6.2" stroke="#000"
+        stroke-width="3" stroke-linecap="round" />
+      <circle cx="60" cy="22" r="6" fill="#000" />
+      <circle cx="96" cy="48" r="6" fill="#000" />
+      <circle cx="82" cy="91" r="6" fill="#000" />
+      <circle cx="38" cy="91" r="6" fill="#000" />
+      <circle cx="24" cy="48" r="6" fill="#000" />
+      <path d="M28 38c4-6 9-10 15-13" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" />
+    </symbol>
+
+    <symbol id="st-code" viewBox="0 0 120 120">
+      <rect x="10" y="22" width="100" height="76" rx="22" fill="#e9ccff" stroke="#000" stroke-width="3" />
+      <path d="M44 44L28 60l16 16M76 44l16 16-16 16M66 40L54 80" fill="none" stroke="#000" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <symbol id="st-star" viewBox="0 0 120 120">
+      <path d="M60 10l12.9 32.2 34.7 2.3-26.7 22.3 8.5 33.7L60 82l-29.4 18.5 8.5-33.7-26.7-22.3 34.7-2.3z"
+        fill="#ffd731" stroke="#000" stroke-width="3" stroke-linejoin="round" />
+      <path d="M44 50l5-1" stroke="#fff" stroke-width="4" stroke-linecap="round" />
+    </symbol>
+  </svg>
+
+  <!-- Custom cursor -->
   <div class="cursor" id="cursorDot" aria-hidden="true">
     <div class="cursor__dot"></div>
   </div>
@@ -50,601 +100,409 @@
     </div>
   </div>
 
-  <!-- Interactive SVG & Tabular Counter Preloader -->
+  <!-- Preloader -->
   <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__center">
-      <svg class="preloader__logo" viewBox="0 0 120 120" fill="none">
+    <div class="preloader__band marquee label">
+      <div class="marquee__track">
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+        <span>Muhammad Nabil · Game Tech & Web Systems · 2026 ·</span>
+      </div>
+    </div>
+    <div class="preloader__badge">
+      <svg viewBox="0 0 120 120" fill="none">
         <path d="M20 90V30H38L60 62L82 30H100V90H82V52L64 78H56L38 52V90H20Z" />
       </svg>
     </div>
-    <div class="preloader__marquee">
-      <div class="preloader__track">
-        <span>MUHAMMAD NABIL · GAME TECH & WEB SYSTEMS · 2026 · </span>
-        <span>MUHAMMAD NABIL · GAME TECH & WEB SYSTEMS · 2026 · </span>
-        <span>MUHAMMAD NABIL · GAME TECH & WEB SYSTEMS · 2026 · </span>
-        <span>MUHAMMAD NABIL · GAME TECH & WEB SYSTEMS · 2026 · </span>
-      </div>
-    </div>
-    <div class="preloader__counter">
-      <span id="preloaderCount">0</span><em>%</em>
-    </div>
+    <p class="preloader__counter display"><span id="preloaderCount">0</span><em>%</em></p>
     <div class="preloader__curtain" id="preloaderCurtain"></div>
   </div>
 
-  <!-- Top Navigation Header -->
-  <header class="nav" id="nav">
-    <a class="nav__brand" href="#hero" aria-label="Muhammad Nabil, return to top">
-      <svg class="nav__mark" viewBox="0 0 120 120" fill="none">
-        <path d="M20 90V30H38L60 62L82 30H100V90H82V52L64 78H56L38 52V90H20Z" />
-      </svg>
-      <span class="nav__name">MUHD NABIL</span>
-    </a>
-
-    <nav class="nav__links" aria-label="Primary Navigation">
-      <a href="#strip">Builds</a>
-      <a href="#manifesto">Profile</a>
-      <a href="#method">Disciplines</a>
-      <a href="#toolkit">Toolkit</a>
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <a class="nav__cta" href="#contact">
-      <span class="nav__cta-dot"></span>Available for Roles
-    </a>
-
-    <button class="nav__burger" id="navBurger" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
-      aria-controls="mobileMenu">
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <!-- Mobile Drawer Menu -->
-  <div class="mnav" id="mobileMenu" aria-hidden="true">
-    <p class="mnav__label">(Navigation)</p>
-    <nav class="mnav__links" aria-label="Mobile Navigation">
-      <a href="#strip" style="--i:0"><i>01</i>Selected Builds</a>
-      <a href="#manifesto" style="--i:1"><i>02</i>Profile & Bio</a>
-      <a href="#method" style="--i:2"><i>03</i>Core Disciplines</a>
-      <a href="#toolkit" style="--i:3"><i>04</i>Technical Stack</a>
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" style="--i:4"><i>05</i>Download CV (PDF) ↗</a>
-      <a href="#contact" style="--i:5"><i>06</i>Start a Project</a>
-    </nav>
-    <div class="mnav__foot">
-      <span>Johor, Malaysia · UTeM Game Tech</span>
-      <a href="mailto:muhammadnabil030505@gmail.com">muhammadnabil030505@gmail.com</a>
+  <!-- Announcement band -->
+  <div class="marquee label bg-lavender py-8" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Available for roles</span><span>Game tech × web systems</span><span>Johor, Malaysia</span><span>Final year UTeM</span>
+      <span>Available for roles</span><span>Game tech × web systems</span><span>Johor, Malaysia</span><span>Final year UTeM</span>
+      <span>Available for roles</span><span>Game tech × web systems</span><span>Johor, Malaysia</span><span>Final year UTeM</span>
+      <span>Available for roles</span><span>Game tech × web systems</span><span>Johor, Malaysia</span><span>Final year UTeM</span>
     </div>
   </div>
 
-  <!-- Main Content Wrapper -->
-  <main id="main-content" role="main">
-    <!-- SECTION 1: HERO -->
-    <section class="hero" id="hero">
-      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a class="btn-circle size-48" href="#hero" aria-label="Muhammad Nabil, back to top">
+      <svg class="w-26" viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M20 90V30H38L60 62L82 30H100V90H82V52L64 78H56L38 52V90H20Z" fill="currentColor" />
+      </svg>
+    </a>
 
-      <div class="hero__inner">
-        <div class="hero__headline-wrap">
-          <p class="hero__tagline" data-reveal>Johor, Malaysia · Final Year UTeM</p>
-          <h1 class="hero__title">
-            <span class="hero__line hero__line--grotesk" data-reveal>SHIPS WEB SYSTEMS.</span>
-            <span class="hero__line hero__line--serif" data-reveal>Also ships games.</span>
-          </h1>
+    <div class="flex items-center gap-4">
+      <nav class="hidden items-center gap-4 nav:flex" aria-label="Primary">
+        <a class="pill-nav" href="#strip">Builds</a>
+        <a class="pill-nav" href="#profile">Profile</a>
+        <a class="pill-nav" href="#toolkit">Toolkit</a>
+        <a class="pill-nav" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+        <a class="pill-nav" href="#contact">Contact</a>
+      </nav>
+      <a class="btn-fill hidden min-h-40 sm:inline-flex" href="#contact"><span class="dot"></span>Available for roles</a>
+      <button class="btn-circle nav__burger nav:hidden" id="navBurger" type="button" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="mobileMenu"><span aria-hidden="true">+</span></button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mnav" id="mobileMenu" aria-hidden="true">
+    <p class="label mb-12">Menu</p>
+    <nav class="mnav__links" aria-label="Mobile">
+      <a class="display" href="#strip" style="--i:0"><span class="tag">01</span>Builds</a>
+      <a class="display" href="#profile" style="--i:1"><span class="tag">02</span>Profile</a>
+      <a class="display" href="#toolkit" style="--i:2"><span class="tag">03</span>Toolkit</a>
+      <a class="display" href="/resume.pdf" target="_blank" rel="noopener noreferrer" style="--i:3"><span
+          class="tag">04</span>Resume ↗</a>
+      <a class="display" href="#contact" style="--i:4"><span class="tag">05</span>Contact</a>
+    </nav>
+    <div class="mt-28 flex flex-wrap justify-between gap-12 text-[14px] font-bold">
+      <span>Johor, Malaysia · UTeM Game Tech</span>
+      <a class="underline underline-offset-4" href="mailto:muhammadnabil030505@gmail.com">muhammadnabil030505@gmail.com</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <div class="panel-wrap">
+      <section class="hero panel flex flex-col bg-sky-wash" id="hero">
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+        <div class="relative z-[1] flex flex-1 flex-col items-center justify-center px-16 pt-112 pb-96 text-center">
+          <p class="tag mb-28" data-reveal>Johor, Malaysia · Final year UTeM</p>
+
+          <div class="relative" data-reveal>
+            <h1 class="display hero__word">
+              <span class="sr-only">Muhammad Nabil, Game Technology & Web Systems Engineer</span>
+              <span aria-hidden="true">Nabil</span>
+            </h1>
+            <span class="sticker" style="--size:clamp(64px,9vw,140px); --x:-7%; --y:-2%; --rot:-16deg" aria-hidden="true">
+              <svg><use href="#st-controller" /></svg>
+            </span>
+            <span class="sticker" style="--size:clamp(58px,8vw,124px); --r:6%; --y:-16%; --rot:12deg" aria-hidden="true">
+              <svg><use href="#st-watch" /></svg>
+            </span>
+            <span class="sticker" style="--size:clamp(58px,8vw,126px); --r:-8%; --b:6%; --rot:-10deg" aria-hidden="true">
+              <svg><use href="#st-server" /></svg>
+            </span>
+            <span class="sticker" style="--size:clamp(56px,7.5vw,116px); --x:13%; --b:-3%; --rot:14deg" aria-hidden="true">
+              <svg><use href="#st-ball" /></svg>
+            </span>
+          </div>
+
+          <p class="hero__tagline mt-24 text-balance" data-reveal>Ships web systems. Also ships games.</p>
+
+          <div class="mt-32 flex flex-wrap justify-center gap-12" data-reveal>
+            <a class="btn-ghost" href="#strip">See the builds ↓</a>
+            <a class="btn-ghost" href="/resume.pdf" target="_blank" download="Muhammad_Nabil_Resume.pdf"
+              data-cursor-label="CV" data-cursor-icon="↓">Download CV ↓</a>
+          </div>
         </div>
 
-        <div class="hero__aside" data-reveal>
-          <p class="hero__desc">
-            Laravel, MySQL and Linux servers on one side. Unreal Engine 5 and Unity on the other. Nine builds below, and
-            the overlap between the two is the part I actually chase.
+        <div class="marquee display relative z-[2] bg-carbon py-14 text-[22px] text-paper-white" aria-hidden="true">
+          <div class="marquee__track [animation-direction:reverse]">
+            <span>Vintara United ✦</span><span>Vault Runner ✦</span><span>Car booking engine ✦</span><span>Football platform ✦</span><span>Last Vanguard ✦</span><span>SecureVault ✦</span>
+            <span>Vintara United ✦</span><span>Vault Runner ✦</span><span>Car booking engine ✦</span><span>Football platform ✦</span><span>Last Vanguard ✦</span><span>SecureVault ✦</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="panel-wrap">
+      <section class="panel bg-paper-white py-80 lg:py-128" id="profile" aria-labelledby="profileName">
+        <div class="shell grid items-start gap-60 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-80">
+          <!-- Portrait + stats -->
+          <div class="mx-auto w-full max-w-[460px]" data-reveal>
+            <div class="relative">
+              <figure class="profile__portrait card-elevated wash-lavender p-12">
+                <img src="/images/profile-photo.jpg" alt="Muhammad Nabil bin Ariffudin"
+                  class="aspect-[4/5] w-full rounded-[28px] border border-carbon object-cover" loading="lazy">
+                <figcaption class="label flex justify-between gap-12 px-8 pt-12 pb-4">
+                  <span>Muhammad Nabil bin Ariffudin</span>
+                  <span>Johor, MY</span>
+                </figcaption>
+              </figure>
+              <span class="tag wash-ember absolute -left-16 top-40 -rotate-6">Engineer · UTeM 2026</span>
+              <span class="sticker" style="--size:clamp(72px,9vw,104px); --r:-24px; --b:96px; --rot:14deg" aria-hidden="true">
+                <svg><use href="#st-star" /></svg>
+              </span>
+              <span class="tag wash-sunburst absolute -right-12 bottom-56 rotate-6">Dean's List</span>
+            </div>
+
+            <div class="mt-48 grid grid-cols-3 gap-12 text-center">
+              <div class="flex flex-col items-center gap-10">
+                <div class="coin wash-sunburst"><strong>5+</strong></div>
+                <p class="text-[12px] leading-[1.35] font-bold">Shipped & production builds</p>
+              </div>
+              <div class="flex flex-col items-center gap-10">
+                <div class="coin wash-mint-pop"><strong>3.32</strong></div>
+                <p class="text-[12px] leading-[1.35] font-bold">CGPA in Game Technology (BITE)</p>
+              </div>
+              <div class="flex flex-col items-center gap-10">
+                <div class="coin wash-electric-blue"><strong>03</strong></div>
+                <p class="text-[12px] leading-[1.35] font-bold">Core engines: UE5, Unity, Godot</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div data-reveal>
+            <p class="tag mb-24 flex w-fit gap-8"><span class="dot"></span>Internship: 28 Sep 2026 – 12 Mar 2027</p>
+
+            <h2 class="display profile__name" id="profileName">Muhammad Nabil<br>Bin Ariffudin</h2>
+
+            <p class="mt-20 text-[clamp(18px,2vw,24px)] leading-[1.2] font-bold">
+              Game Technology & Web Systems Engineer · Johor, Malaysia
+            </p>
+
+            <div class="card-sticker wash-lavender mt-32 p-24">
+              <p class="label">Education</p>
+              <p class="mt-10 text-[20px] leading-[1.2] font-bold">Bachelor of IT (Game Technology) with Honours (BITE)</p>
+              <p class="mt-6">Universiti Teknikal Malaysia Melaka (UTeM)</p>
+              <p class="mt-10 text-[14px]">UTeM Dean's List (Sem 3 & 5) · <strong>CGPA 3.32 / 4.00</strong> · Shipped 5+
+                Multi-Disciplinary Systems</p>
+            </div>
+
+            <p class="mt-28 max-w-[62ch] text-[17px] leading-[1.55]">
+              Specialized in the convergence between real-time 3D game engines and robust web server architecture.
+              From low-latency WearOS biometric telemetry over UDP sockets in Unreal Engine 5 to concurrency-safe
+              booking engines in Laravel and bare-metal Linux server hardening.
+            </p>
+
+            <ul class="mt-24 flex flex-wrap gap-8" aria-label="Core skills">
+              <li class="tag">Unreal Engine 5</li>
+              <li class="tag">C++ & Blueprints</li>
+              <li class="tag">Unity & C#</li>
+              <li class="tag">Laravel & PHP</li>
+              <li class="tag">MySQL & Concurrency</li>
+              <li class="tag">WearOS UDP Sockets</li>
+              <li class="tag">Linux Server (UFW)</li>
+            </ul>
+
+            <div class="mt-32 flex flex-wrap gap-12">
+              <a href="/resume.pdf" target="_blank" download="Muhammad_Nabil_Resume.pdf" class="btn-fill"
+                data-cursor-label="CV" data-cursor-icon="↓">Download CV ↓</a>
+              <a href="mailto:muhammadnabil030505@gmail.com" class="btn-ghost" data-cursor-label="EMAIL">Email me ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SELECTED BUILDS (pinned horizontal strip) -->
+    <section class="strip panel-wrap" id="strip" aria-labelledby="stripTitle">
+      <div class="strip__panel panel bg-concrete-gray">
+        <header class="shell flex flex-col gap-16 lg:flex-row lg:items-end lg:justify-between">
+          <h2 class="display strip__title" id="stripTitle">Selected builds</h2>
+          <div class="flex flex-col gap-14 lg:max-w-[440px] lg:items-end lg:pb-6">
+            <p class="hidden text-[15px] leading-[1.45] sm:block lg:text-right">Nine builds across web platforms, engine state machines,
+              and low-latency sockets.</p>
+            <div class="-mx-4 flex gap-6 overflow-x-auto px-4 [scrollbar-width:none]" id="stripFilters"></div>
+          </div>
+        </header>
+
+        <div class="strip__viewport" id="stripViewport">
+          <div class="strip__rail" id="stripRail">
+            <!-- Rendered by stripMotion.js -->
+          </div>
+        </div>
+
+        <footer class="shell flex items-center justify-between gap-16">
+          <p class="display text-[44px] tabular-nums" aria-live="polite">
+            <span id="stripCurrent">01</span><span class="text-[22px]"> / <span id="stripTotal">09</span></span>
           </p>
-          <ul class="hero__index">
-            <li>
-              <a href="#strip" onclick="if(window.openProjectModal) window.openProjectModal('vintara-united')"
-                data-cursor-label="VIEW PROJECT">
-                <span><i>01</i>Vintara United</span>
-                <span class="hero__index-tag">Football Club Web</span>
+          <p class="label hidden md:block">Scroll or use the arrows · click a card to open it</p>
+          <div class="flex gap-8">
+            <button type="button" class="btn-circle" id="stripPrevBtn" aria-label="Previous build"
+              data-cursor-label="PREV" data-cursor-icon="←">←</button>
+            <button type="button" class="btn-circle" id="stripNextBtn" aria-label="Next build"
+              data-cursor-label="NEXT" data-cursor-icon="→">→</button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <div class="panel-wrap">
+      <section class="panel bg-paper-white py-80 lg:py-128" id="toolkit" aria-labelledby="toolkitTitle">
+        <div class="shell">
+          <div class="flex flex-col gap-20 lg:flex-row lg:items-end lg:justify-between">
+            <h2 class="display text-[clamp(72px,12vw,190px)]" id="toolkitTitle">Toolkit</h2>
+            <p class="max-w-[420px] text-[17px] leading-[1.5] lg:pb-12 lg:text-right">
+              Engines, languages, web frameworks, servers and creative tools: what the builds above are made with.
+            </p>
+          </div>
+          <div id="toolkitList" class="mt-48 grid gap-16 md:grid-cols-2 lg:grid-cols-6">
+            <!-- Rendered by toolkit.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="panel-wrap">
+      <section class="panel bg-sky-wash py-80 lg:py-128" id="contact" aria-labelledby="contactTitle">
+        <div class="shell">
+          <p class="tag mb-28 flex w-fit gap-8"><span class="dot"></span>Available for roles & projects</p>
+
+          <div class="relative inline-block">
+            <h2 class="display contact__word" id="contactTitle">Let's<br>build.</h2>
+            <span class="sticker" style="--size:clamp(64px,9vw,136px); --r:-22%; --y:4%; --rot:12deg" aria-hidden="true">
+              <svg><use href="#st-code" /></svg>
+            </span>
+            <span class="sticker" style="--size:clamp(60px,8vw,120px); --r:-10%; --b:4%; --rot:-14deg" aria-hidden="true">
+              <svg><use href="#st-controller" /></svg>
+            </span>
+          </div>
+
+          <div class="mt-48 grid grid-cols-1 gap-40 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
+            <div class="min-w-0">
+              <p class="text-[clamp(26px,3.2vw,44px)] leading-[1.05] font-bold tracking-[-0.02em]">Tell me what you are
+                building.</p>
+              <p class="mt-16 max-w-[52ch] text-[17px] leading-[1.5]">
+                Web development, game tech, or anything sitting between the two. I read every message and I answer in
+                plain language.
+              </p>
+              <a class="btn-ghost mt-28 min-h-60 max-w-full px-24 text-[clamp(14px,1.8vw,20px)] tracking-normal normal-case"
+                href="mailto:muhammadnabil030505@gmail.com" data-cursor-label="EMAIL">
+                <span class="truncate">muhammadnabil030505@gmail.com</span>
               </a>
-            </li>
-            <li>
-              <a href="#strip" onclick="if(window.openProjectModal) window.openProjectModal('vault-runner')"
-                data-cursor-label="VIEW PROJECT">
-                <span><i>02</i>Vault Runner</span>
-                <span class="hero__index-tag">UE5 + WearOS UDP</span>
-              </a>
-            </li>
-            <li>
-              <a href="#strip" onclick="if(window.openProjectModal) window.openProjectModal('car-booking')"
-                data-cursor-label="VIEW PROJECT">
-                <span><i>03</i>Fleet Reservation</span>
-                <span class="hero__index-tag">Company Car Booking</span>
-              </a>
-            </li>
+              <div class="mt-16 flex flex-wrap gap-12">
+                <a class="btn-fill" href="mailto:muhammadnabil030505@gmail.com">Email me ↗</a>
+                <a class="btn-ghost" href="https://www.linkedin.com/in/muhammad-nabil-bin-ariffudin-234b18430"
+                  target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                <a class="btn-ghost" href="https://github.com/nabbbbil" target="_blank" rel="noopener noreferrer">GitHub
+                  ↗</a>
+              </div>
+            </div>
+
+            <a class="card-sticker wash-voltage-violet grid max-w-[440px] rotate-2 grid-cols-[auto_1fr] items-center gap-20 p-12 transition-transform duration-300 hover:rotate-0 lg:justify-self-end"
+              href="/resume.pdf" target="_blank" download="Muhammad_Nabil_Resume.pdf" data-cursor-label="CV"
+              data-cursor-icon="↓">
+              <span class="grid size-112 place-items-center rounded-2xl border border-carbon bg-paper-white">
+                <svg class="w-56" viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M14 6h26l12 12v38c0 1-1 2-2 2H14c-1 0-2-1-2-2V8c0-1 1-2 2-2z" fill="#fff" stroke="#000"
+                    stroke-width="2.5" stroke-linejoin="round" />
+                  <path d="M40 6v12h12" fill="#e9ccff" stroke="#000" stroke-width="2.5" stroke-linejoin="round" />
+                  <path d="M20 28h24M20 36h24M20 44h14" stroke="#000" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span class="min-w-0 pr-12">
+                <span class="label block truncate">Muhammad_Nabil_Resume.pdf</span>
+                <span class="display mt-8 block whitespace-nowrap text-[clamp(32px,3.2vw,46px)]">Download CV</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div class="panel-wrap pb-8">
+    <footer class="panel wash-electric-blue pt-80">
+      <div class="shell grid gap-40 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div>
+          <p class="display text-[44px]">Muhammad Nabil</p>
+          <p class="mt-12 max-w-[34ch] text-[15px] leading-[1.5]">
+            Game Technology & Web Systems Engineer.<br>
+            Based in Johor, Malaysia · Final Year UTeM.
+          </p>
+        </div>
+
+        <div>
+          <p class="label mb-16">Index</p>
+          <ul class="flex flex-col gap-10 text-[15px] font-bold">
+            <li><a class="hover:underline underline-offset-4" href="#strip">Selected Builds</a></li>
+            <li><a class="hover:underline underline-offset-4" href="#profile">Profile & Bio</a></li>
+            <li><a class="hover:underline underline-offset-4" href="#toolkit">Technical Toolkit</a></li>
+            <li><a class="hover:underline underline-offset-4" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="label mb-16">Live Apps</p>
+          <ul class="flex flex-col gap-10 text-[15px] font-bold">
+            <li><a class="hover:underline underline-offset-4" href="https://vintara-united.vercel.app/" target="_blank"
+                rel="noopener noreferrer">Vintara United ↗</a></li>
+            <li><a class="hover:underline underline-offset-4" href="https://carbookingtcsb.freedev.app/" target="_blank"
+                rel="noopener noreferrer">Car Booking (Company Fleet) ↗</a></li>
+            <li><a class="hover:underline underline-offset-4" href="https://youtu.be/6yYOuqcfvEc" target="_blank"
+                rel="noopener noreferrer">Football Booking (Demo Video) ↗</a></li>
+            <li><a class="hover:underline underline-offset-4" href="https://github.com/nabbbbil/football-field-booking"
+                target="_blank" rel="noopener noreferrer">GitHub Source ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="label mb-16">Connect</p>
+          <ul class="flex flex-col gap-10 text-[15px] font-bold">
+            <li><a class="hover:underline underline-offset-4" href="/resume.pdf" target="_blank"
+                download="Muhammad_Nabil_Resume.pdf">Download CV (PDF) ↓</a></li>
+            <li><a class="hover:underline underline-offset-4"
+                href="https://www.linkedin.com/in/muhammad-nabil-bin-ariffudin-234b18430" target="_blank"
+                rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li><a class="hover:underline underline-offset-4" href="mailto:muhammadnabil030505@gmail.com">Email Me</a></li>
+            <li><a class="hover:underline underline-offset-4" href="#hero">Back to Top ↑</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="hero__marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="hero__marquee-item">VINTARA UNITED <span>·</span></span>
-          <span class="hero__marquee-item">VAULT RUNNER <span>·</span></span>
-          <span class="hero__marquee-item">CAR BOOKING ENGINE <span>·</span></span>
-          <span class="hero__marquee-item">FOOTBALL PLATFORM <span>·</span></span>
-          <span class="hero__marquee-item">LAST VANGUARD <span>·</span></span>
-          <span class="hero__marquee-item">VINTARA UNITED <span>·</span></span>
-          <span class="hero__marquee-item">VAULT RUNNER <span>·</span></span>
-          <span class="hero__marquee-item">CAR BOOKING ENGINE <span>·</span></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: PROFILE & BIOGRAPHY -->
-    <section class="manifesto" id="manifesto" aria-labelledby="profileName">
-      <div class="manifesto__rail">
-        <p class="manifesto__label">(About the Engineer)</p>
-        <div class="manifesto__stats">
-          <div class="manifesto__stat" data-reveal>
-            <strong>5+</strong>
-            <span>Shipped & production builds across web, engines, & systems</span>
-          </div>
-          <div class="manifesto__stat" data-reveal>
-            <strong>3.32</strong>
-            <span>CGPA in Game Technology (BITE) at UTeM</span>
-          </div>
-          <div class="manifesto__stat" data-reveal>
-            <strong>03</strong>
-            <span>Core Game Engines: UE5, Unity, Godot</span>
-          </div>
-        </div>
+      <div class="shell label mt-80 flex flex-wrap justify-between gap-12 border-t border-carbon pt-16">
+        <span>© 2026 Muhammad Nabil</span>
+        <span>muhdnabil.site</span>
       </div>
 
-      <div class="manifesto__body">
-        <div class="profile-hero" data-reveal>
-          <div class="profile-hero__media">
-            <div class="profile-hero__portrait-frame">
-              <img src="/images/profile-photo.jpg" alt="Muhammad Nabil bin Ariffudin" class="profile-hero__portrait"
-                loading="lazy">
-              <div class="profile-hero__badge">
-                <span>ENGINEER</span>
-                <span>UTeM 2026</span>
-              </div>
-            </div>
-            <div class="profile-hero__caption">
-              <span>MUHAMMAD NABIL BIN ARIFFUDIN</span>
-              <span>JOHOR, MALAYSIA</span>
-            </div>
-          </div>
-
-          <div class="profile-hero__content">
-            <div class="profile-hero__status">
-              <span class="profile-hero__status-dot"></span>
-              Internship: 28 Sep 2026 – 12 Mar 2027
-            </div>
-
-            <h2 class="profile-hero__name" id="profileName">
-              <span class="profile-hero__name-main">Muhammad Nabil</span>
-              <span class="profile-hero__name-main">Bin Ariffudin</span>
-            </h2>
-
-            <p class="profile-hero__role">
-              Game Technology & Web Systems Engineer · Johor, Malaysia
-            </p>
-
-            <div class="profile-hero__edu">
-              <div class="profile-hero__edu-badge">Bachelor of IT (Game Technology) with Honours (BITE)</div>
-              <p class="profile-hero__edu-school">Universiti Teknikal Malaysia Melaka (UTeM)</p>
-              <p class="profile-hero__edu-meta">UTeM Dean's List (Sem 3 & 5) · <strong>CGPA 3.32 / 4.00</strong> ·
-                Shipped 5+ Multi-Disciplinary Systems</p>
-            </div>
-
-            <div class="profile-hero__summary">
-              <p>
-                Specialized in the convergence between real-time 3D game engines and robust web server architecture.
-                From low-latency WearOS biometric telemetry over UDP sockets in Unreal Engine 5 to concurrency-safe
-                booking engines in Laravel and bare-metal Linux server hardening.
-              </p>
-            </div>
-
-            <div class="profile-hero__tags">
-              <span class="profile-hero__tag">Unreal Engine 5</span>
-              <span class="profile-hero__tag">C++ & Blueprints</span>
-              <span class="profile-hero__tag">Unity & C#</span>
-              <span class="profile-hero__tag">Laravel & PHP</span>
-              <span class="profile-hero__tag">MySQL & Concurrency</span>
-              <span class="profile-hero__tag">WearOS UDP Sockets</span>
-              <span class="profile-hero__tag">Linux Server (UFW)</span>
-            </div>
-
-            <div class="profile-hero__actions">
-              <a href="/resume.pdf" target="_blank" download="Muhammad_Nabil_Resume.pdf" class="btn-pill"
-                data-cursor-label="CV ↓">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right: 4px;">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download CV (PDF) ↓
-              </a>
-              <a href="mailto:muhammadnabil030505@gmail.com" class="btn-pill btn-pill--ghost"
-                data-cursor-label="EMAIL ↗">
-                Contact Me ↗
-              </a>
-              <a href="#strip" class="profile-hero__btn-ghost" data-cursor-label="BUILDS ↓">
-                Explore Selected Builds ↓
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="mt-24 overflow-hidden" aria-hidden="true">
+        <p class="display footer__giant translate-y-[10%] text-center">Muhd Nabil</p>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <!-- SECTION 3: 3D FLOATING STRIP (SELECTED BUILDS - INVERTED CREAM) -->
-    <section class="strip" id="strip" aria-labelledby="stripTitle">
-      <header class="strip__head">
-        <p class="strip__eyebrow">
-          <span>02</span>
-          <span>Selected Builds</span>
-        </p>
-        <h2 class="strip__title" id="stripTitle">
-          <span>Explore,</span>
-          <em>before you read.</em>
-        </h2>
-        <div class="strip__intro">
-          <p>Five signature builds engineered across web platforms, engine state machines, and low-latency sockets.</p>
-          <div class="strip__filters" id="stripFilters"></div>
-        </div>
-      </header>
-
-      <div class="strip__viewport" id="stripViewport" data-cursor-label="DRAG STRIP">
-        <div class="strip__rail" id="stripRail">
-          <!-- Dynamically populated by stripMotion.js -->
-        </div>
-      </div>
-
-      <footer class="strip__foot">
-        <p>Current Showcase · <span id="stripCurrent">01</span> / <span id="stripTotal">05</span></p>
-        <div class="strip__nav-btns">
-          <button type="button" class="strip__nav-btn" id="stripPrevBtn" aria-label="Previous build"
-            data-cursor-label="PREV">←</button>
-          <button type="button" class="strip__nav-btn" id="stripNextBtn" aria-label="Next build"
-            data-cursor-label="NEXT">→</button>
-        </div>
-        <p>Scroll, drag, or click any card to inspect ↗</p>
-      </footer>
-    </section>
-
-    <!-- SECTION 4: CORE DISCIPLINES (STACKING CARDS) -->
-    <section class="process" id="method" aria-labelledby="methodTitle">
-      <div class="process__head">
-        <div class="process__head-top">
-          <p class="process__eyebrow">
-            <span>03</span>
-            <span>Core Disciplines</span>
-          </p>
-          <p class="process__promise">
-            Practical engineering expertise grounded in real-world systems — spanning 3D game engines, production web
-            apps, and server infrastructure.
-          </p>
-        </div>
-
-        <h2 class="process__title" id="methodTitle">
-          <span class="process__title-serif">Core</span>
-          <span class="process__title-main">Disciplines</span>
-        </h2>
-
-        <ol class="process__legend" aria-label="Disciplines Breakdown">
-          <li><span>01</span> Game Development</li>
-          <li><span>02</span> Web Engineering</li>
-          <li><span>03</span> Biometrics & IoT</li>
-          <li><span>04</span> Servers & Linux</li>
-        </ol>
-      </div>
-
-      <div class="process__cards" id="processCards">
-        <!-- Card 1 -->
-        <article class="process-card">
-          <div class="process-card__inner">
-            <div class="process-card__index">
-              <span class="process-card__num">01</span>
-              <span class="process-card__phase">Unreal Engine & Unity</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__name">Game Development</h3>
-              <p class="process-card__text">
-                Building playable 3D games with responsive character movement, tactical enemy AI, and optimized frame
-                rates. Experienced in prototyping core mechanics, visual particle effects, and tuning physics for
-                tactile 60 FPS gameplay.
-              </p>
-              <p class="process-card__meta">Unreal Engine 5 · Unity · C++ · C# · Gameplay AI · Blueprints · Niagara VFX
-              </p>
-            </div>
-            <div class="process-card__visual">
-              <span class="process-card__badge">FEATURED IN VAULT RUNNER & LAST VANGUARD</span>
-              <p style="font-size: 0.88rem; color: var(--ink-dim); line-height: 1.5;">
-                Engineered stealth guard patrol AI in <em>Vault Runner</em>, combat mechanics in <em>Last Vanguard</em>,
-                and custom jump physics in <em>City Chase</em>.
-              </p>
-            </div>
-            <span class="process-card__ghost" aria-hidden="true">01</span>
-          </div>
-          <span class="process-card__shade" aria-hidden="true"></span>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="process-card">
-          <div class="process-card__inner">
-            <div class="process-card__index">
-              <span class="process-card__num">02</span>
-              <span class="process-card__phase">PHP, Laravel & MySQL</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__name">Web Engineering</h3>
-              <p class="process-card__text">
-                Developing production web applications with secure role-based access, interactive availability
-                calendars, and database-level concurrency locks that prevent scheduling overlaps and double-booking.
-              </p>
-              <p class="process-card__meta">PHP · Laravel · MySQL · REST APIs · Atomic Locks · CSRF Protection</p>
-            </div>
-            <div class="process-card__visual">
-              <span class="process-card__badge">FEATURED IN CAR BOOKING & VINTARA UNITED</span>
-              <p style="font-size: 0.88rem; color: var(--ink-dim); line-height: 1.5;">
-                Built the company car reservation system with conflict-free scheduling during my internship, and the
-                modern responsive platform for <em>Vintara United</em>.
-              </p>
-            </div>
-            <span class="process-card__ghost" aria-hidden="true">02</span>
-          </div>
-          <span class="process-card__shade" aria-hidden="true"></span>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="process-card">
-          <div class="process-card__inner">
-            <div class="process-card__index">
-              <span class="process-card__num">03</span>
-              <span class="process-card__phase">WearOS & UDP Telemetry</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__name">Biometrics & IoT</h3>
-              <p class="process-card__text">
-                Connecting physical wearable devices to game engines over custom low-latency UDP sockets. Streaming
-                biometric sensor telemetry across local networks without lag to drive real-time gameplay reactions.
-              </p>
-              <p class="process-card__meta">WearOS · UDP Socket Protocols · C++ · Sensor Sync · Network Telemetry</p>
-            </div>
-            <div class="process-card__visual">
-              <span class="process-card__badge">FINAL YEAR RESEARCH (FYP)</span>
-              <p style="font-size: 0.88rem; color: var(--ink-dim); line-height: 1.5;">
-                In <em>Vault Runner: Midnight Heist</em>, the player's live heart rate streamed from a smartwatch
-                dynamically changes enemy security patrol alertness in real time.
-              </p>
-            </div>
-            <span class="process-card__ghost" aria-hidden="true">03</span>
-          </div>
-          <span class="process-card__shade" aria-hidden="true"></span>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="process-card">
-          <div class="process-card__inner">
-            <div class="process-card__index">
-              <span class="process-card__num">04</span>
-              <span class="process-card__phase">Ubuntu & Server Security</span>
-            </div>
-            <div class="process-card__body">
-              <h3 class="process-card__name">Servers & Linux</h3>
-              <p class="process-card__text">
-                Deploying, configuring, and securing production environments directly from the Linux command line.
-                Setting up web servers, databases, and firewall boundaries so applications stay stable, isolated, and
-                protected.
-              </p>
-              <p class="process-card__meta">Ubuntu Linux · Apache2 · MariaDB · UFW Firewall · SSH / SFTP</p>
-            </div>
-            <div class="process-card__visual">
-              <span class="process-card__badge">FEATURED IN SECUREVAULT CLUSTER</span>
-              <p style="font-size: 0.88rem; color: var(--ink-dim); line-height: 1.5;">
-                Configured a dual-VM architecture physically separating the web application tier and database layer
-                behind hardened UFW firewall rules.
-              </p>
-            </div>
-            <span class="process-card__ghost" aria-hidden="true">04</span>
-          </div>
-          <span class="process-card__shade" aria-hidden="true"></span>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECTION 5: TECHNICAL TOOLKIT (INVERTED CREAM SECTION) -->
-    <section class="toolkit-sec" id="toolkit">
-      <div class="toolkit-sec__left">
-        <p class="toolkit-sec__label">04 / Technical Capabilities</p>
-        <div id="toolkitList">
-          <!-- Populated by toolkitPreview.js -->
-        </div>
-      </div>
-
-      <div class="toolkit-sec__right">
-        <div class="toolkit-sec__preview-card" id="toolkitPreviewCard">
-          <span
-            style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase;">ACTIVE
-            SPECIFICATION</span>
-          <h4 class="toolkit-sec__preview-title" id="toolkitPreviewTitle">Engines & 3D</h4>
-          <p class="toolkit-sec__preview-desc" id="toolkitPreviewDesc">Architecting interactive worlds, real-time
-            gameplay loops, and AI systems.</p>
-          <div id="toolkitPreviewTags" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6: CONVERSATIONAL CONTACT FORM -->
-    <section class="contact" id="contact">
-      <div class="contact__grid">
-        <div class="contact__intro">
-          <p class="contact__avail">
-            <span class="contact__avail-dot"></span>Available for Roles & Projects
-          </p>
-          <h2 class="contact__hook">Tell me what you are building.</h2>
-          <a class="contact__mail" href="mailto:muhammadnabil030505@gmail.com" data-cursor-label="EMAIL ↗">
-            muhammadnabil030505@gmail.com
-          </a>
-          <p class="contact__sub">
-            Web development, game tech, or anything sitting between the two. I read every message and I answer in plain
-            language.
-          </p>
-        </div>
-
-        <!-- Conversational 3-step form -->
-        <form class="cform" id="contactForm">
-          <div class="cform__head">
-            <p class="cform__count"><span id="cfStepNow">01</span><em>/ 03</em></p>
-            <p class="cform__steplabel" id="cfStepLabel">Who are you?</p>
-          </div>
-
-          <!-- Step 1 -->
-          <div class="cform__step is-active" data-step="1">
-            <div class="cform__field">
-              <label for="cfName">Your Name</label>
-              <input type="text" id="cfName" placeholder="e.g. Alex Tan" required>
-            </div>
-            <div class="cform__field">
-              <label for="cfEmail">Email Address</label>
-              <input type="email" id="cfEmail" placeholder="e.g. alex@studio.com" required>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="cform__step" data-step="2">
-            <p
-              style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-dim); text-transform: uppercase;">
-              Select Primary Scope</p>
-            <div class="cform__pills">
-              <span class="cform__pill is-selected" data-value="Web Engineering">Web Platform & Systems</span>
-              <span class="cform__pill" data-value="Game Technology">Game Tech & UE5 / Unity</span>
-              <span class="cform__pill" data-value="Network & Sockets">Low-Latency Sockets / UDP</span>
-              <span class="cform__pill" data-value="Full-Time Engineering">Full-Time Career Role</span>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="cform__step" data-step="3">
-            <div class="cform__field">
-              <label for="cfMessage">Project Outline or Message</label>
-              <textarea id="cfMessage" rows="4"
-                placeholder="Brief outline of your team, stack, or project requirements..."></textarea>
-            </div>
-          </div>
-
-          <!-- Success Screen -->
-          <div id="cfDone" style="display: none; padding: 1.5rem 0;">
-            <h3 style="font-family: var(--font-grotesk); font-size: 1.8rem; color: var(--accent);">Message Prepared!
-            </h3>
-            <p style="font-size: 0.95rem; color: var(--ink-dim); margin-top: 0.5rem; line-height: 1.5;">
-              Your email client has been launched with your enquiry pre-filled. You can also reach me directly at
-              <strong style="color: var(--ink);">muhammadnabil030505@gmail.com</strong>.
-            </p>
-          </div>
-
-          <div class="cform__nav">
-            <button type="button" id="cfBackBtn"
-              style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-dim); text-transform: uppercase; cursor: pointer; visibility: hidden;">
-              ← Back
-            </button>
-            <button type="button" class="btn-pill" id="cfNextBtn">
-              Continue →
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- SECTION 7: MONOLITHIC WORDMARK FOOTER -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <p class="footer__brand-title">Muhammad Nabil</p>
-        <p class="footer__brand-desc">
-          Game Technology & Web Systems Engineer.<br>
-          Based in Johor, Malaysia · Final Year UTeM.
-        </p>
-      </div>
-
-      <div class="footer__col">
-        <p class="footer__col-title">Index</p>
-        <a href="#strip">Selected Builds</a>
-        <a href="#manifesto">Profile & Bio</a>
-        <a href="#method">Core Disciplines</a>
-        <a href="#toolkit">Technical Toolkit</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="footer__col">
-        <p class="footer__col-title">Live Apps</p>
-        <a href="https://vintara-united.vercel.app/" target="_blank" rel="noopener noreferrer">Vintara United ↗</a>
-        <a href="https://carbookingtcsb.freedev.app/" target="_blank" rel="noopener noreferrer">Car Booking (Company
-          Fleet) ↗</a>
-        <a href="https://youtu.be/6yYOuqcfvEc" target="_blank"
-          rel="noopener noreferrer">Football Booking (Demo Video) ↗</a>
-        <a href="https://github.com/nabbbbil/football-field-booking" target="_blank" rel="noopener noreferrer">GitHub
-          Source ↗</a>
-      </div>
-
-      <div class="footer__col">
-        <p class="footer__col-title">Connect</p>
-        <a href="/resume.pdf" target="_blank" download="Muhammad_Nabil_Resume.pdf">Download CV (PDF) ↓</a>
-        <a href="https://www.linkedin.com/in/muhammad-nabil-bin-ariffudin-234b18430" target="_blank"
-          rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="mailto:muhammadnabil030505@gmail.com">Email Me</a>
-        <a href="#hero">Back to Top ↑</a>
-      </div>
-    </div>
-
-    <div class="footer__wordmark" aria-hidden="true">
-      <p class="footer__giant">MUHD NABIL</p>
-    </div>
-  </footer>
-
-  <!-- Interactive Project Details Modal -->
-  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <!-- Project modal -->
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal__backdrop" data-cursor-label="CLOSE" data-cursor-icon="✕"></div>
-    <div class="modal__dialog">
-      <button type="button" class="modal__close" id="modalCloseBtn" aria-label="Close modal" data-cursor-label="CLOSE"
-        data-cursor-icon="✕">✕</button>
+    <div class="modal__dialog" data-lenis-prevent>
+      <button type="button" class="btn-circle modal__close" id="modalCloseBtn" aria-label="Close project"
+        data-cursor-label="CLOSE" data-cursor-icon="✕"><span aria-hidden="true">+</span></button>
 
-      <!-- Left Media Column -->
-      <div class="modal__media-col">
+      <div class="flex min-w-0 flex-col gap-12">
         <div class="modal__main-media">
-          <img id="modalMainImg" src="" alt="Project Preview" />
+          <img id="modalMainImg" src="" alt="" />
         </div>
-        <div class="modal__thumbs" id="modalThumbs">
-          <!-- Thumbnails populated dynamically -->
-        </div>
+        <div class="flex gap-8 overflow-x-auto p-4" id="modalThumbs"></div>
       </div>
 
-      <!-- Right Information Column -->
-      <div class="modal__info-col">
+      <div class="flex min-w-0 flex-col justify-between gap-32 md:pt-40">
         <div>
-          <p class="modal__index" id="modalIndex">01 // Web Engineering</p>
-          <h2 class="modal__title" id="modalTitle">Project Title</h2>
-          <p class="modal__subtitle" id="modalSubtitle">Subtitle</p>
-          <span class="modal__status-tag" id="modalStatus">LIVE</span>
-          <p class="modal__desc" id="modalDesc">Detailed description...</p>
-
-          <div class="modal__stack-wrap">
-            <p class="modal__stack-label">Core Architecture & Tech Stack</p>
-            <div class="modal__stack-pills" id="modalStack"></div>
+          <p class="label" id="modalIndex">01 · Web Engineering</p>
+          <h2 class="display modal__title mt-12" id="modalTitle">Project</h2>
+          <p class="mt-12 text-[17px] leading-[1.3] font-bold" id="modalSubtitle"></p>
+          <div class="mt-16 flex flex-wrap items-center gap-8">
+            <span class="tag" id="modalStatus">LIVE</span>
+            <span class="tag" id="modalYear"></span>
           </div>
+          <p class="mt-14 text-[14px]"><span class="font-bold">Role:</span> <span id="modalRole"></span></p>
+          <p class="mt-20 text-[15px] leading-[1.6]" id="modalDesc"></p>
+
+          <p class="label mt-28 mb-10">Core architecture & tech stack</p>
+          <div class="flex flex-wrap gap-6" id="modalStack"></div>
         </div>
 
-        <div class="modal__actions">
-          <a href="#" id="modalLiveLink" target="_blank" rel="noopener noreferrer" class="btn-pill"
-            style="display: none;" data-cursor-label="OPEN" data-cursor-icon="↗">
-            Open Live System ↗
-          </a>
-          <a href="#" id="modalGithubLink" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill--ghost"
-            style="display: none;" data-cursor-label="CODE" data-cursor-icon="↗">
-            View GitHub Repo ↗
-          </a>
+        <div class="flex flex-wrap gap-10">
+          <a href="#" id="modalLiveLink" target="_blank" rel="noopener noreferrer" class="btn-fill"
+            style="display: none;" data-cursor-label="OPEN" data-cursor-icon="↗">Open live system ↗</a>
+          <a href="#" id="modalGithubLink" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+            style="display: none;" data-cursor-label="CODE" data-cursor-icon="↗">View GitHub repo ↗</a>
         </div>
       </div>
     </div>

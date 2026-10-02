@@ -46,8 +46,13 @@ export function initSmoothScroll() {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           e.preventDefault();
-          globalLenis.scrollTo(targetElement, {
-            offset: -30,
+          // A pinned section moves to the end of its spacer once scrolled past; aim for the spacer's start
+          const parent = targetElement.parentElement;
+          const destination = parent && parent.classList.contains('pin-spacer') ? parent : targetElement;
+          // force: the mobile drawer stops Lenis and this handler runs before it reopens
+          globalLenis.scrollTo(destination, {
+            offset: 0,
+            force: true,
             duration: 1.4,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
           });

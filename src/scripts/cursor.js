@@ -66,7 +66,7 @@ export function initCursor() {
 
   // Delegate hover state listeners
   document.addEventListener('mouseover', (e) => {
-    const target = e.target.closest('a, button, input, textarea, select, [data-cursor-label], .strip-card, .toolkit-sec__item');
+    const target = e.target.closest('a, button, input, textarea, select, [data-cursor-label], .strip-card');
     if (!target) {
       document.body.classList.remove('cursor-state--hover', 'cursor-state--badge', 'cursor-state--text');
       return;
@@ -93,7 +93,7 @@ export function initCursor() {
   });
 
   document.addEventListener('mouseout', (e) => {
-    const target = e.target.closest('a, button, input, textarea, select, [data-cursor-label], .strip-card, .toolkit-sec__item');
+    const target = e.target.closest('a, button, input, textarea, select, [data-cursor-label], .strip-card');
     if (target) {
       document.body.classList.remove('cursor-state--hover', 'cursor-state--badge', 'cursor-state--text');
     }

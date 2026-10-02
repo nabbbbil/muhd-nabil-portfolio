@@ -43,7 +43,7 @@ export const portfolioData = {
       stack: ["HTML5 / CSS3", "JavaScript (ESNext)", "3D Space-Tilt", "Vercel Edge", "Custom Motion"],
       liveUrl: "https://vintara-united.vercel.app/",
       githubUrl: null,
-      accent: "#BFA888",
+      sticker: "sunburst",
       featured: true,
       ratio: "landscape",
       visualType: "vintara",
@@ -66,7 +66,7 @@ export const portfolioData = {
       stack: ["Unreal Engine 5", "C++ / Blueprints", "WearOS Telemetry", "UDP Sockets", "Dynamic AI"],
       liveUrl: "https://youtu.be/geQvLD_CuiA?si=yYP0b6Woys1Z4j-9",
       githubUrl: null,
-      accent: "#00E5FF",
+      sticker: "electric-blue",
       featured: true,
       ratio: "portrait",
       visualType: "vault",
@@ -90,7 +90,7 @@ export const portfolioData = {
       stack: ["PHP (Modern)", "MySQL Engine", "CSRF Defense", "Session Auth", "Mail Engine"],
       liveUrl: "https://carbookingtcsb.freedev.app/",
       githubUrl: null,
-      accent: "#FF6A13",
+      sticker: "ember",
       featured: true,
       ratio: "tall",
       visualType: "car",
@@ -115,7 +115,7 @@ export const portfolioData = {
       liveUrl: "https://youtu.be/6yYOuqcfvEc",
       liveLabel: "Watch Demo Video ↗",
       githubUrl: "https://github.com/nabbbbil/football-field-booking",
-      accent: "#10B981",
+      sticker: "mint-pop",
       featured: true,
       ratio: "landscape",
       visualType: "pitch",
@@ -139,7 +139,7 @@ export const portfolioData = {
       stack: ["Unreal Engine", "Action RPG", "Niagara VFX", "3D Art", "Combat Trees"],
       liveUrl: null,
       githubUrl: null,
-      accent: "#8B5CF6",
+      sticker: "voltage-violet",
       featured: true,
       ratio: "square",
       visualType: "vanguard",
@@ -162,7 +162,7 @@ export const portfolioData = {
       stack: ["Ubuntu Server", "Apache2", "MariaDB", "UFW Firewall", "OpenSSL"],
       liveUrl: null,
       githubUrl: null,
-      accent: "#3B82F6",
+      sticker: "lavender",
       featured: false,
       ratio: "landscape",
       visualType: "securevault",
@@ -186,7 +186,7 @@ export const portfolioData = {
       stack: ["Unity Engine", "C#", "Custom Physics", "Cinemachine", "Run-State Manager"],
       liveUrl: null,
       githubUrl: null,
-      accent: "#F59E0B",
+      sticker: "sunburst",
       featured: false,
       ratio: "landscape",
       visualType: "citychase",
@@ -210,7 +210,7 @@ export const portfolioData = {
       stack: ["Godot Engine", "GDScript", "UI Component System", "Audio Engine"],
       liveUrl: null,
       githubUrl: null,
-      accent: "#EC4899",
+      sticker: "mint-pop",
       featured: false,
       ratio: "landscape",
       visualType: "mathquiz",
@@ -232,7 +232,7 @@ export const portfolioData = {
       stack: ["System Design", "Rules Topology", "Playtesting", "Physical Prototyping"],
       liveUrl: null,
       githubUrl: null,
-      accent: "#14B8A6",
+      sticker: "electric-blue",
       featured: false,
       ratio: "landscape",
       visualType: "mencarikamu",
@@ -241,41 +241,6 @@ export const portfolioData = {
         "/images/projects/mencari-kamu-2.jpeg",
         "/images/projects/mencari-kamu-3.jpeg"
       ]
-    }
-  ],
-
-  methodDeck: [
-    {
-      step: "01",
-      phase: "Unreal Engine & Unity",
-      title: "Game Development",
-      text: "Building playable 3D games with responsive character movement, tactical enemy AI, and optimized frame rates. Prototyping mechanics, particle effects, and tuning physics for tactile 60 FPS gameplay.",
-      meta: "Unreal Engine 5 · Unity · C++ · C# · Gameplay AI · Blueprints · Niagara VFX",
-      badge: "VAULT RUNNER · LAST VANGUARD · CITY CHASE"
-    },
-    {
-      step: "02",
-      phase: "PHP, Laravel & MySQL",
-      title: "Web Engineering",
-      text: "Developing production web applications with secure role-based access, interactive availability calendars, and database-level concurrency locks that prevent scheduling overlaps and double-booking.",
-      meta: "PHP · Laravel · MySQL · REST APIs · Atomic Locks · CSRF Protection",
-      badge: "CAR BOOKING · VINTARA UNITED"
-    },
-    {
-      step: "03",
-      phase: "WearOS & UDP Telemetry",
-      title: "Biometrics & IoT",
-      text: "Connecting physical wearable devices to game engines over custom low-latency UDP sockets. Streaming biometric sensor telemetry across local networks without lag to drive real-time gameplay reactions.",
-      meta: "WearOS · UDP Socket Protocols · C++ · Sensor Sync · Network Telemetry",
-      badge: "FINAL YEAR PROJECT (FYP)"
-    },
-    {
-      step: "04",
-      phase: "Ubuntu & Server Security",
-      title: "Servers & Linux",
-      text: "Deploying, configuring, and securing production environments directly from the Linux command line. Setting up web servers, databases, and firewall boundaries so applications stay stable, isolated, and protected.",
-      meta: "Ubuntu Linux · Apache2 · MariaDB · UFW Firewall · SSH / SFTP",
-      badge: "SECUREVAULT CLUSTER"
     }
   ],
 

@@ -19,19 +19,19 @@ export function initProjectModal() {
   const stackContainer = document.getElementById('modalStack');
   const liveLinkBtn = document.getElementById('modalLiveLink');
   const githubLinkBtn = document.getElementById('modalGithubLink');
+  let lastFocused = null;
 
   function openProject(projectId) {
     const project = portfolioData.projects.find(p => p.id === projectId);
     if (!project) return;
 
     // Set Text Content
-    if (indexEl) indexEl.textContent = `${project.index} // ${project.category}`;
+    if (indexEl) indexEl.textContent = `${project.index} · ${project.category}`;
     if (titleEl) titleEl.textContent = project.title;
     if (subtitleEl) subtitleEl.textContent = project.subtitle;
     if (statusEl) {
       statusEl.textContent = project.status;
-      statusEl.style.borderColor = project.accent || 'var(--accent)';
-      statusEl.style.color = project.accent || 'var(--accent)';
+      statusEl.className = `tag wash-${project.sticker}`;
     }
     if (roleEl) roleEl.textContent = project.role;
     if (yearEl) yearEl.textContent = project.year;
@@ -40,7 +40,7 @@ export function initProjectModal() {
     // Set Tech Stack
     if (stackContainer) {
       stackContainer.innerHTML = project.stack
-        .map(s => `<span class="modal__stack-pill">${s}</span>`)
+        .map(s => `<span class="tag">${s}</span>`)
         .join('');
     }
 
@@ -108,9 +108,12 @@ export function initProjectModal() {
     }
 
     // Open Modal
+    lastFocused = document.activeElement;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    if (window.lenis) window.lenis.stop();
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
   }
 
   function closeModal() {
@@ -118,6 +121,8 @@ export function initProjectModal() {
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     document.body.classList.remove('cursor-state--badge', 'cursor-state--hover');
+    if (window.lenis) window.lenis.start();
+    if (lastFocused && lastFocused.focus) lastFocused.focus({ preventScroll: true });
   }
 
   if (closeBtn) closeBtn.addEventListener('click', closeModal);

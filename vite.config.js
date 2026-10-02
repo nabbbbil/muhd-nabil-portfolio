@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  plugins: [tailwindcss()],
   server: {
     port: 3000,
     open: false,
@@ -8,6 +10,8 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    minify: 'esbuild'
+    minify: 'esbuild',
+    // ribbon3d (Three.js) is a lazy chunk of ~530 kB; it never blocks first paint
+    chunkSizeWarningLimit: 600
   }
 });

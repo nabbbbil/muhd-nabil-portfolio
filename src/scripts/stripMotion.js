@@ -50,10 +50,13 @@ export function initStripMotion() {
       card.className = 'strip-card';
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
-      card.setAttribute('data-cursor-label', 'EXPLORE ↗');
+      card.setAttribute('aria-label', `Open ${p.title}`);
+      card.setAttribute('data-cursor-label', 'VIEW PROJECT');
       card.setAttribute('data-cursor-icon', '↗');
 
       const coverImg = p.images && p.images.length > 0 ? p.images[0] : null;
+      const shownStack = p.stack.slice(0, 3);
+      const hiddenCount = p.stack.length - shownStack.length;
 
       card.innerHTML = `
         <div class="strip-card__float" style="
@@ -62,33 +65,24 @@ export function initStripMotion() {
           --float-delay: ${float.delay};
           --float-rot: ${float.rot};
         ">
-          <figure class="strip-card__media">
-            <div class="strip-card__mockup" style="--card-accent: ${p.accent};">
-              ${coverImg ? `<img class="strip-card__bg-img" src="${coverImg}" alt="${p.title}" />` : ''}
-              <div class="strip-card__mockup-overlay"></div>
-              <div class="strip-card__mockup-head">
-                <span class="strip-card__mockup-badge">${p.status}</span>
-                <span>${p.year}</span>
-              </div>
-              <div class="strip-card__mockup-art">
-                <h3 class="strip-card__mockup-title">${p.title}</h3>
-                <p class="strip-card__mockup-sub">${p.subtitle}</p>
-              </div>
-              <div class="strip-card__mockup-stack">
-                ${p.stack.map(tech => `<span class="strip-card__mockup-pill">${tech}</span>`).join('')}
+          <article class="strip-card__body card-elevated wash-${p.sticker}">
+            <div class="flex items-center justify-between gap-8 pb-12">
+              <span class="tag min-w-0"><span class="truncate">${p.status}</span></span>
+              <span class="label flex-none">${p.year}</span>
+            </div>
+            <figure class="strip-card__media">
+              ${coverImg ? `<img src="${coverImg}" alt="${p.title}" loading="lazy" />` : ''}
+            </figure>
+            <div class="px-4 pt-16 pb-4">
+              <p class="label">${p.index} · ${p.category}</p>
+              <h3 class="display strip-card__title mt-8">${p.title}</h3>
+              <p class="strip-card__sub mt-8 text-[14px] leading-[1.35]">${p.subtitle}</p>
+              <div class="strip-card__stack mt-14 flex flex-wrap gap-6">
+                ${shownStack.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                ${hiddenCount > 0 ? `<span class="tag">+${hiddenCount}</span>` : ''}
               </div>
             </div>
-            <span class="strip-card__open">
-              View Project <i>↗</i>
-            </span>
-          </figure>
-          <div class="strip-card__meta">
-            <div class="strip-card__meta-top">
-              <span class="strip-card__meta-num">${p.index}</span>
-              <span class="strip-card__meta-year">${p.category} · ${p.year}</span>
-            </div>
-            <h4 class="strip-card__meta-title">${p.title}</h4>
-          </div>
+          </article>
         </div>
       `;
 
@@ -175,12 +169,17 @@ export function initStripMotion() {
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `filter-chip ${cat === activeCategory ? 'is-active' : ''}`;
+      btn.className = `pill-nav filter-chip ${cat === activeCategory ? 'is-active' : ''}`;
       btn.textContent = cat;
+      btn.setAttribute('aria-pressed', String(cat === activeCategory));
       btn.addEventListener('click', () => {
         activeCategory = cat;
-        filterContainer.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('is-active'));
+        filterContainer.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
         renderCards(cat);
       });
       filterContainer.appendChild(btn);

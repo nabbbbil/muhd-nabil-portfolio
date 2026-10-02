@@ -1,17 +1,10 @@
-import '../styles/variables.css';
-import '../styles/base.css';
-import '../styles/components.css';
-import '../styles/sections.css';
-import '../styles/responsive.css';
+import '../styles/app.css';
 
 import { initSmoothScroll } from './smoothScroll.js';
 import { initPreloader } from './preloader.js';
 import { initCursor } from './cursor.js';
-import { initHeroCanvas } from './heroCanvas.js';
 import { initStripMotion } from './stripMotion.js';
-import { initProcessStack } from './processStack.js';
-import { initToolkitPreview } from './toolkitPreview.js';
-import { initContactForm } from './contactForm.js';
+import { initToolkit } from './toolkit.js';
 import { initProjectModal } from './projectModal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,25 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Initialize Custom Cursor
   initCursor();
 
-  // 3. Initialize Interactive Canvas
-  initHeroCanvas();
+  // 3. 3D ribbon — Three.js loads as its own chunk so it never blocks first paint
+  const heroCanvas = document.getElementById('heroCanvas');
+  if (heroCanvas) {
+    import('./ribbon3d.js')
+      .then(({ initRibbon }) => initRibbon(heroCanvas))
+      .catch(() => heroCanvas.remove());
+  }
 
   // 4. Initialize Project Details Modal
   initProjectModal();
 
-  // 5. Initialize 3D Perspective Strip
+  // 5. Initialize Pinned Project Strip
   initStripMotion();
 
-  // 5. Initialize Sticky Stacking Deck
-  initProcessStack();
+  // 6. Render Toolkit Cards
+  initToolkit();
 
-  // 6. Initialize Capabilities Accordion & Preview
-  initToolkitPreview();
-
-  // 7. Initialize Multi-Step Contact Form
-  initContactForm();
-
-  // 8. Initialize Preloader
+  // 7. Initialize Preloader
   initPreloader(() => {
     // Trigger hero entrance reveals after preloader finishes
     document.querySelectorAll('#hero [data-reveal]').forEach(el => {
@@ -47,28 +39,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 8. Nav slides up once the announcement band scrolls away
+  const nav = document.getElementById('nav');
+  if (nav) {
+    const updateNav = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }
+
   // 9. Mobile Menu Toggles
   const burger = document.getElementById('navBurger');
   const mobileMenu = document.getElementById('mobileMenu');
   if (burger && mobileMenu) {
-    burger.addEventListener('click', () => {
-      const isOpen = burger.classList.toggle('is-open');
-      mobileMenu.classList.toggle('is-open');
+    const setMenu = (isOpen) => {
+      burger.classList.toggle('is-open', isOpen);
+      mobileMenu.classList.toggle('is-open', isOpen);
       burger.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
+      if (window.lenis) isOpen ? window.lenis.stop() : window.lenis.start();
+    };
+
+    burger.addEventListener('click', () => setMenu(!burger.classList.contains('is-open')));
 
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        burger.classList.remove('is-open');
-        mobileMenu.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.classList.contains('is-open')) setMenu(false);
     });
   }
 
-  // 10. Scroll Reveals & Manifesto Word Highlights
+  // 10. Scroll Reveals
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -79,29 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
-
-    // Word reveal in manifesto
-    const manifestoText = document.getElementById('manifestoText');
-    if (manifestoText) {
-      const words = manifestoText.textContent.trim().split(/\s+/);
-      manifestoText.innerHTML = words.map(w => `<span class="w">${w}</span> `).join('');
-
-      const wordSpans = manifestoText.querySelectorAll('.w');
-      const manifestoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            wordSpans.forEach((span, i) => {
-              setTimeout(() => {
-                span.classList.add('is-active');
-              }, i * 35);
-            });
-            manifestoObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-
-      manifestoObserver.observe(manifestoText);
-    }
   } else {
     document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-inview'));
   }
